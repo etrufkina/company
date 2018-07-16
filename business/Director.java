@@ -4,11 +4,13 @@ import java.lang.String;
  * Created by Lena on 11.07.2018.
  */
 public class Director {
-    public String   fullname;   // полное имя
-    public int      experience; // опыт работы (лет)
-    public int      age;        // возраст (лет!!!)
-    public float    salary;     // текущая заработная плата (в у.е.!!!)
-    public Manager  helper;     // Объект тип Manager - это основной помощник менеджера (правая рука)
+    private String   fullname;   // полное имя
+    private int      experience; // опыт работы (лет)
+    private int      age;        // возраст (лет!!!)
+    private float    salary;     // текущая заработная плата (в у.е.!!!)
+    private Manager  helper;     // Объект тип Manager - это основной помощник менеджера (правая рука)
+
+
     // добавить конструктор и методы, указанные выше
 //    public String text;
     public String getFullname() {
@@ -23,8 +25,12 @@ public class Director {
         return experience;
     }
 
-    public void setExperience(int experience) {
-        this.experience = experience;
+    public void setExperience(int experience) throws Exception{
+    	if(experience>=0){
+    		this.experience = experience;
+    	}else{
+    		throw new Exception("Experience can't be less then 0");
+    	}
     }
 
     public int getAge() {
@@ -61,13 +67,20 @@ public class Director {
 
     @Override
     public String toString(){
-        return "\nСправка о директоре: " + "\nполное имя: " + fullname + "\nопыт работы: " + experience + "\nвозраст: "
-                + age + "\nтекущая заработная плата: " + salary+ "\nосновной помощник менеджера: " + helper;
+        return "\nInformation about the director: " + "\nfullname: " + fullname + "\nexperience: " + experience + "\nage: "
+                + age + "\nsalary: " + salary+ "\nmain helper: " + helper + "\n";
     }
 
     // объявить метод incrementSalary() который каждый раз, когда он применяется, увеличивает заработную плату на 20%.
-    int incrementSalary() {
-//        double percentage = salary*0.2;
-        return (int) (salary = (float) (salary + salary*0.2));
+    float incrementSalary() {
+        return salary = (float) (salary + salary*0.2);
+    }
+
+    float directorSalaryForThreeYear(){
+        return (float) (salary * 3 + salary * ((experience + 3) * 0.03));
+    }
+
+    String displayDirector(){
+        return fullname + "\t\t" + experience + "\t\t\t" + age + "\t\t\t" +  salary + "\n";
     }
 }

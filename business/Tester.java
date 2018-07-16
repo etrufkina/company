@@ -1,14 +1,14 @@
 package business;
 
 /**
- * Created by Lena on 11.07.2018.
+ * Created by Lena on 15.07.2018.
  */
-public class Programmer {
+public class Tester {
     private String       fullname;   // полное имя
     private int          experience; // опыт работы (лет)
     private int          age;        // возраст (лет!!!)
     private float        salary;     // текущая заработная плата (в у.е.!!!)
-    private String       technology; // название языка программирования, которым владеет (например, Java, Python,...)
+    private String       technology; // название языка программирования, которым владеет (например Java, Python,...)
     // добавить конструктор и методы, указанные выше
 
     public String getFullname() {
@@ -51,7 +51,7 @@ public class Programmer {
         this.technology = technology;
     }
 
-    public Programmer(String Fullname, int Experience, int Age, float Salary, String Technology){
+    public Tester(String Fullname, int Experience, int Age, float Salary, String Technology){
         this.fullname = Fullname;
         this.experience = Experience;
         this.age = Age;
@@ -61,23 +61,21 @@ public class Programmer {
 
     @Override
     public String toString(){
-        return "\nInformation about the programmer : " + "\nfullname: " + fullname + "\nexperience: " + experience + "\nage: "
-                + age + "\nsalary: " + salary+ "\ntechnology: " + technology+ "\n";
+        return "\nInformation about the tester: " + "\nfullname: " + fullname + "\nexperience: " + experience + "\nage: "
+                + age + "\nsalary: " + salary+ "\ntechnology : " + technology+ "\n";
     }
 
-    // объявить метод incrementSalary() который каждый раз, когда он применяется, увеличивает заработную плату на 15%.
+    // объявить метод incrementSalary() который каждый раз, когда он применяется,
+    // увеличивает заработную плату на 3% + 0.5% за каждый год опыта работы в данной области.
     float incrementSalary() {
-        return  salary = (float) (salary + salary*0.05 + salary*experience*0.01);
+        return  salary = (float) (salary + salary*0.03 + experience*0.005);
     }
 
-    float programmerSalaryForThreeYear(){
-        return (float) (salary * 3 + salary * ((experience + 3) * 0.01));
+    float testerSalaryForThreeYear(){
+        return (float) (salary * 3 + salary * (experience + 3) * 0.005);
     }
 
-    String displayProgrammer(){
+    String displayTester(){
         return fullname + "\t\t" + experience + "\t\t\t" + age + "\t\t\t" +  salary + "\n";
-    }
-    String displayLeadDeveloper(){
-        return fullname + "\t\t\t" + experience + "\t\t\t" + age + "\t\t\t" +  salary + "\n";
     }
 }
