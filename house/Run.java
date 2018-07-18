@@ -28,7 +28,7 @@ public class Run {
 		}
 
 		float dif = (dog.getWeight() - weightBefore)/1000;
-		int dogAge = dog.getAge();
+		int dogAge = dog.getAge()/1000;
 		int ownerAge = owner.getAge()/365;
 
 
