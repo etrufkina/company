@@ -6,10 +6,10 @@ package house;
 public class Dog {
     public String name;   // кличка
     public float    weight; // вес (граммы)
-    public float    age;    // возраст (дни!!!)
+    public int    age;    // возраст (дни!!!)
     // добавить конструктор и методы, указанные выше
 
-    public Dog(String Name, int Weight, float Age){
+    public Dog(String Name, int Weight, int Age){
         this.name = Name;
         this.weight = Weight;
         this.age = Age;
@@ -31,7 +31,7 @@ public class Dog {
         this.weight = weight;
     }
 
-    public float getAge() {
+    public int getAge() {
         return age;
     }
 
@@ -41,17 +41,13 @@ public class Dog {
 
 //    объявить метод eat(quantity) который получит значение количества пищи в граммах, предлагаемой щенку.
 // Этот метод будет увеличивать вес щенка на 1% от потребляемого количества пищи и повышать возраст на 1 день при каждом вызове.
-    public float eat(float quantity) {
-//        Owner d = new Owner(),
-              Owner  f = new Owner();
-              quantity = f.getFood();
-          weight = (weight + quantity);
-          age += 1;
-        return + weight +   age;
+    public void eat(float quantity) {
+          weight = (weight + quantity*0.01f);
+          age++;
     }
 
     @Override
     public String toString(){
-        return "\n" + name + " весит " + weight +  "kg, возраст " + age + " год. \n";
+        return "\n" + name + " весит " + String.format("%.1f", weight/1000) +  " kg, возраст " +(int) (Math.ceil(age/365)) + " год. \n";
     }
 }

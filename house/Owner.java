@@ -39,14 +39,20 @@ public class Owner {
         return food;
     }
 
-    public void setFood(int food) {
+    public void setFood(float food) {
         this.food = food;
     }
 
 
+	public float getFood(float quantity){
+    	food = food - quantity;
+    	age++;
+    	return quantity;
+	}
+
     @Override
     public String toString(){
-        return "\n" + fullname + " возраст " + age +  "лет, имеет в наличии " + food + "kg корма. \n";
+        return "\n" + fullname + " возраст " + (int)(Math.ceil(age/365)) +  " лет, имеет в наличии " + String.format("%.1f", food/1000) + " kg корма. \n";
     }
 
 }
