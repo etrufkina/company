@@ -3,13 +3,13 @@ package house;
 /**
  * Created by Lena on 17.07.2018.
  */
-public class Dog {
+public class Dog implements Animal{
     public String name;   // кличка
     public float    weight; // вес (граммы)
     public int    age;    // возраст (дни!!!)
     // добавить конструктор и методы, указанные выше
 
-    public Dog(String Name, int Weight, int Age){
+    public Dog(String Name, float Weight, int Age){
         this.name = Name;
         this.weight = Weight;
         this.age = Age;
@@ -27,7 +27,7 @@ public class Dog {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(float weight) {
         this.weight = weight;
     }
 
@@ -41,7 +41,8 @@ public class Dog {
 
 //    объявить метод eat(quantity) который получит значение количества пищи в граммах, предлагаемой щенку.
 // Этот метод будет увеличивать вес щенка на 1% от потребляемого количества пищи и повышать возраст на 1 день при каждом вызове.
-    public void eat(float quantity) {
+	@Override
+	public void eat(float quantity) {
           weight = (weight + quantity*0.01f);
           age++;
     }

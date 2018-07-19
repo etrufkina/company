@@ -43,7 +43,6 @@ public class Owner {
         this.food = food;
     }
 
-
 	public float getFood(float quantity){
     	food = food - quantity;
     	age++;
